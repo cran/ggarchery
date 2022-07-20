@@ -37,12 +37,16 @@
 #' element of this one. The default is [grid::arrow()] with default parameters.
 #' @param arrow_fills A vector of fill colours for the arrowheads, behaves as
 #' the `arrow_fill` option in [`geom_segment`].
-#' @import ggplot2 tidyverse
+#' @import ggplot2 tidyr dplyr purrr
+#' @importFrom magrittr %>%
 #' @export
 #' @return A ggproto object
 #' @examples
 #'
-#'  library(tidyverse)
+#'  library(ggplot2)
+#'  library(magrittr)
+#'  library(tidyr)
+#'
 #'  # Generate some dummy data
 #'
 #'  ten.points <- data.frame(line.no = rep(1:5, each = 2), x = runif(10), y = runif(10),

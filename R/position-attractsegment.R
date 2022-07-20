@@ -12,12 +12,15 @@
 #' @param type_shave If "proportion" (the default) then this is a proportion of the total line length. If "distance"
 #' then it is instead the raw distance along the line. The is only really recommended in combination with
 #' [ggplot2::coord_fixed()]; results can be quite odd otherwise.
-#' @import ggplot2 tidyverse
+#' @import ggplot2 dplyr purrr
 #' @export
 #' @return A ggproto object
 #' @examples
 #'
-#'  library(tidyverse)
+#'  library(ggplot2)
+#'  library(magrittr)
+#'  library(tidyr)
+#'
 #'  # Generate some dummy data
 #'
 #'  ten.points <- data.frame(line.no = rep(1:5, each = 2), x = runif(10), y = runif(10),
@@ -62,7 +65,8 @@ attract_proportionally <- function(x, xend, y, yend, prop_start, prop_end){
 #' @param prop_start,prop_end How much to take off the start and end of the line (in the units of the data; beware this can make little sense unless both axes have the same units)
 #' @return A named list of new coordinates for the start and end of the line
 #' @keywords internal
-#' @import glue rlang
+#' @import glue
+#' @importFrom rlang warn
 #' @export
 attract_by_distance <- function(x, xend, y, yend, length_start, length_end){
   euclidean_distance <- sqrt((x-xend)^2 + (y-yend)^2)
@@ -80,6 +84,7 @@ attract_by_distance <- function(x, xend, y, yend, length_start, length_end){
 
 #' @rdname ggarchery-ggproto
 #' @import ggplot2 grid
+#' @importFrom rlang abort
 #' @format NULL
 #' @usage NULL
 #' @export
