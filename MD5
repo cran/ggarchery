@@ -1,10 +1,10 @@
-02716d8304da4fb6af97cb0c31ad7c7b *DESCRIPTION
+3d7f1ebc8fe09e145ec11eb1048b805c *DESCRIPTION
 874c92d78efa55335d697f33cf626a45 *NAMESPACE
-265b80bacd77d1da4974b6b4ffbfa403 *R/geom-arrowsegment.R
+d70b6bf63a9925d483c68232c741afdd *R/geom-arrowsegment.R
 ee58db0e7347f09c0e9bde0a7870085c *R/ggproto.R
 1dce740109f465e4ac29a1d12f71407c *R/legend-draw-ggarchery.R
-57562a3b32e3682b221fcb3f09484d2d *R/position-attractsegment.R
-da8be4b3e3bc6aa37e156da7ba28bc42 *README.md
+2ebe581a916c10e04b3a923ebf5b1dd4 *R/position-attractsegment.R
+257e47d13e2356a196ddb7ad8f488d99 *README.md
 4cd38f27faa2d11e4d33e4b18cc9d3ac *man/attract_by_distance.Rd
 99b3bd9961dee7271e6898720bee2b5b *man/attract_proportionally.Rd
 f1b0e6f7879c20d69203fa03e614fd05 *man/draw_key_arrowpath.Rd
@@ -27,7 +27,7 @@ df7bda2aef2e2ba4e8135b210e4aaa76 *man/figures/geom_arrowsegment_example8.png
 feb6fb445ed6da5ed28f7670cdc3750b *man/figures/position_attractsegment_example3.png
 77bd4107869fb71b90a613f95d3ba971 *man/figures/position_attractsegment_example4.png
 f0687a784a582cad31aa747caae2e687 *man/figures/position_attractsegment_example5.png
-8ab3cd75483ca62ffc45c8c56778f9b8 *man/geom_arrowsegment.Rd
+7266c9714ca9e43127cb9e8e031a7fb6 *man/geom_arrowsegment.Rd
 a73c2c0c2a9c0ba7bc054e28c64d11cc *man/ggarchery-ggproto.Rd
 0f8b6300f4b6a20ab32a0ba47b1b8b40 *man/position_attractsegment.Rd
 90aeb01995451578ddcffb59c9f740e9 *man/split_arrows.Rd

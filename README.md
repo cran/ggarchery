@@ -38,7 +38,8 @@ The `arrows` parameter of `geom_arrowsegment()` also behaves exactly like the `a
 
 ```
 ggplot(tbl) + 
-  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend), arrows = arrow(type = 'closed')) + 
+  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend), 
+                    arrows = arrow(type = 'closed')) + 
   xlim(c(0,1)) +
   ylim(c(0,1))
 ```
@@ -75,20 +76,20 @@ Other aesthetics also work as you would hope. There is a subtle difference in th
 tbl <- tbl %>% mutate(col = c("A", "B"))
 
 ggplot(tbl) + 
-  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend, col = col), arrow_positions = 0.5)  + 
+  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend, col = col), 
+                    arrow_positions = 0.5)  + 
   xlim(c(0,1)) +
   ylim(c(0,1))
 ```
 
 <img src="man/figures/geom_arrowsegment_example5.png" width="400"/>
 
-Another key way that `geom_arrowsegment` differs from `geom_segment` is that it has a working `fill` aesthetic. This is only visible if the arrowhead is closed. Note that
-it must be specified as `fill` even if you want it to simply match the `colour` aesthetic.
+Another key way that `geom_arrowsegment` differs from `geom_segment` is that it has a working `fill` aesthetic. This is only visible if the arrowhead is closed. Note that it must be specified as `fill` even if you want it to simply match the `colour` aesthetic, another difference in behaviour from `geom_segment`.
 
 ```
 ggplot(tbl) + 
-  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend, fill = col), arrow_positions = 0.5, 
-                    arrows = arrow(type = "closed"))  + 
+  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend, fill = col), 
+                    arrow_positions = 0.5, arrows = arrow(type = "closed"))  + 
   xlim(c(0,1)) +
   ylim(c(0,1))
 ```
@@ -97,8 +98,8 @@ ggplot(tbl) +
 
 ```
 ggplot(tbl) + 
-  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend, col = col), arrow_positions = 0.5, 
-                    arrows = arrow(type = "closed"))  + 
+  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend, col = col), 
+                      arrow_positions = 0.5, arrows = arrow(type = "closed"))  + 
   xlim(c(0,1)) +
   ylim(c(0,1))
 ```
@@ -108,7 +109,9 @@ ggplot(tbl) +
 
 ```
 ggplot(tbl) + 
-  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend, fill = col, col = col), arrow_positions = 0.5, 
+  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend, 
+                        fill = col, col = col), 
+                    arrow_positions = 0.5, 
                     arrows = arrow(type = "closed"))  + 
   xlim(c(0,1)) +
   ylim(c(0,1))
@@ -122,7 +125,8 @@ You can also define multiple arrowheads by making `arrow_positions` a vector of 
 
 ```
 ggplot(tbl) + 
-  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend), arrow_positions = c(0.25, 0.75))  + 
+  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend), 
+                    arrow_positions = c(0.25, 0.75))  + 
   xlim(c(0,1)) +
   ylim(c(0,1))
 ```
@@ -133,7 +137,8 @@ If one value is 1, then the final arrowhead appears at the end:
 
 ```
 ggplot(tbl) + 
-  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend), arrow_positions = c(0.25, 1))  + 
+  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend), 
+                    arrow_positions = c(0.25, 1))  + 
   xlim(c(0,1)) +
   ylim(c(0,1))
 ```
@@ -144,8 +149,10 @@ The look of each arrow can also be controlled separately by making `arrows` a li
 
 ```
 ggplot(tbl) + 
-  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend), arrow_positions = c(0.25, 1), 
-                    arrows = list(arrow(angle = 10), arrow(type = 'closed')))  + 
+  geom_arrowsegment(aes(x = x, xend = xend, y = y, yend = yend), 
+                    arrow_positions = c(0.25, 1), 
+                    arrows = list(arrow(angle = 10), 
+                                  arrow(type = 'closed')))  + 
   xlim(c(0,1)) +
   ylim(c(0,1))
 ```
@@ -217,7 +224,7 @@ ggplot(pt.tbl) +
 
 <img src="man/figures/position_attractsegment_example2.png" width="400"/>
 
-`position_attractsegment()` works by shortening the segment at the start and the end (by "attracting" the start and end points towards each other). It can do this in two ways, as determined by the `type_shave` option. If `type_shave = "proportion"` (the default), then it takes the proportions `start_shave` and `end_shave` away:
+`position_attractsegment()` works by shortening the segment at the start and the end ("attracting" the start and end points towards each other). It can do this in two ways, as determined by the `type_shave` option. If `type_shave = "proportion"` (the default), then it takes the proportions `start_shave` and `end_shave` away:
 
 ```
 ggplot(pt.tbl) + 
@@ -226,7 +233,8 @@ ggplot(pt.tbl) +
   geom_segment(data = sg.tbl, 
                aes(x = x, xend = xend, y = y, yend = yend), 
                arrow = arrow(), 
-               position = position_attractsegment(start_shave = 0.1, end_shave = 0.1)) +
+               position = position_attractsegment(start_shave = 0.1, 
+                                                  end_shave = 0.1)) +
   xlim(c(0, 1)) +
   ylim(c(0, 1)) +
   scale_fill_discrete(guide = "none")
@@ -239,7 +247,9 @@ Alternatively, if `type_shave = "distance"` then the amount removed is in graph 
 ```
 ggplot(pt.tbl)+
   geom_segment(data = sg.tbl, aes(x = x, xend = xend, y = y, yend = yend), arrow = arrow(), 
-               position = position_attractsegment(start_shave = 0, end_shave = 0.05, type_shave = "distance")) +
+               position = position_attractsegment(start_shave = 0, 
+                                                  end_shave = 0.05, 
+                                                  type_shave = "distance")) +
   geom_point(aes(x,y, fill = labels), size =6, shape = 21) +
   geom_text(aes(x,y, label = labels))  +
   xlim(c(0, 1)) +
